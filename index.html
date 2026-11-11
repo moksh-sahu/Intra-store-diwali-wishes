@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTRA STORE - Diwali Celebration 🪔</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Audio elements for sound effects -->
+    <audio id="sfx-click" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" preload="auto"></audio>
+    <audio id="sfx-whoosh" src="https://assets.mixkit.co/active_storage/sfx/2572/2572-preview.mp3" preload="auto"></audio>
+    <audio id="sfx-pop" src="https://assets.mixkit.co/active_storage/sfx/270/270-preview.mp3" preload="auto"></audio>
+    <audio id="sfx-success" src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3" preload="auto"></audio>
+    <audio id="sfx-funny" src="https://assets.mixkit.co/active_storage/sfx/2573/2573-preview.mp3" preload="auto"></audio>
+    <audio id="bg-music" src="https://assets.mixkit.co/active_storage/sfx/2565/2565-preview.mp3" preload="auto" loop></audio>
+
+    <!-- Screen 1: Diwali Welcome -->
+    <section id="screen1" class="screen active" data-screen="1">
+        <div class="background-effects">
+            <canvas id="fireworks-canvas"></canvas>
+            <div class="floating-particles" id="particles-container"></div>
+            <div class="animated-diyas" id="diyas-container"></div>
+        </div>
+        <div class="screen-content">
+            <div class="logo-container">
+                <div class="logo-glow"></div>
+                <span class="logo-text">INTRA STORE</span>
+            </div>
+            <h1 class="main-heading">🪔 HAPPY DIWALI</h1>
+            <p class="sub-heading">A Special Celebration from INTRA STORE</p>
+            <p class="description">This Diwali, we have something special for our amazing team.</p>
+            <button class="btn-primary btn-celebrate" id="btn-celebrate">
+                <span class="btn-text">LET'S CELEBRATE ✨</span>
+                <span class="btn-sparkle"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Screen 2: Employee Identification -->
+    <section id="screen2" class="screen" data-screen="2">
+        <div class="background-effects">
+            <canvas id="fireworks-canvas-2"></canvas>
+            <div class="floating-particles" id="particles-container-2"></div>
+        </div>
+        <div class="screen-content">
+            <div class="logo-container">
+                <div class="logo-glow"></div>
+                <span class="logo-text">INTRA STORE</span>
+            </div>
+            <h1 class="screen-heading">WHO'S CELEBRATING TODAY?</h1>
+            <p class="screen-subtitle">Select your name to unlock your surprise.</p>
+            <div class="employee-cards" id="employee-cards">
+                <article class="employee-card" data-employee="OM">
+                    <div class="card-inner">
+                        <span class="employee-name">OM</span>
+                        <span class="employee-role">Team Member</span>
+                        <div class="card-glow"></div>
+                    </div>
+                </article>
+                <article class="employee-card" data-employee="REHAN">
+                    <div class="card-inner">
+                        <span class="employee-name">REHAN</span>
+                        <span class="employee-role">Team Member</span>
+                        <div class="card-glow"></div>
+                    </div>
+                </article>
+                <article class="employee-card" data-employee="SHREY">
+                    <div class="card-inner">
+                        <span class="employee-name">SHREY</span>
+                        <span class="employee-role">Team Member</span>
+                        <div class="card-glow"></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screen 3: Personalized Greeting -->
+    <section id="screen3" class="screen" data-screen="3">
+        <div class="background-effects">
+            <canvas id="fireworks-canvas-3"></canvas>
+            <div class="floating-particles" id="particles-container-3"></div>
+            <div class="animated-diyas" id="diyas-container-3"></div>
+        </div>
+        <div class="screen-content">
+            <div class="logo-container">
+                <div class="logo-glow"></div>
+                <span class="logo-text">INTRA STORE</span>
+            </div>
+            <h1 class="greeting-heading" id="greeting-heading">Happy Diwali, <span id="employee-name-display"></span>! 🎆</h1>
+            <p class="greeting-text">INTRA STORE has prepared something special just for you.</p>
+            <div class="gift-box-container" id="gift-box-container">
+                <div class="gift-box" id="gift-box">
+                    <div class="gift-lid"></div>
+                    <div class="gift-base">
+                        <div class="gift-ribbon-vertical"></div>
+                        <div class="gift-ribbon-horizontal"></div>
+                    </div>
+                </div>
+                <div class="gift-glow"></div>
+            </div>
+            <button class="btn-primary btn-gift" id="btn-gift">
+                <span class="btn-text">UNLOCK MY DIWALI GIFT 🎁</span>
+                <span class="btn-sparkle"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Screen 4: Suspense Loading -->
+    <section id="screen4" class="screen" data-screen="4">
+        <div class="background-effects">
+            <canvas id="fireworks-canvas-4"></canvas>
+            <div class="floating-particles" id="particles-container-4"></div>
+        </div>
+        <div class="screen-content loading-content">
+            <div class="logo-container">
+                <div class="logo-glow"></div>
+                <span class="logo-text">INTRA STORE</span>
+            </div>
+            <div class="loading-animation">
+                <div class="loading-spinner">
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-core"></div>
+                </div>
+            </div>
+            <h2 class="loading-title">Preparing Your Surprise...</h2>
+            <div class="loading-steps" id="loading-steps">
+                <div class="loading-step" data-step="0">
+                    <span class="step-icon">◉</span>
+                    <span class="step-text">Connecting to INTRA STORE server...</span>
+                    <div class="step-progress"><div class="step-bar"></div></div>
+                </div>
+                <div class="loading-step" data-step="1">
+                    <span class="step-icon">◉</span>
+                    <span class="step-text">Verifying employee identity...</span>
+                    <div class="step-progress"><div class="step-bar"></div></div>
+                </div>
+                <div class="loading-step" data-step="2">
+                    <span class="step-icon">◉</span>
+                    <span class="step-text">Checking your performance...</span>
+                    <div class="step-progress"><div class="step-bar"></div></div>
+                </div>
+                <div class="loading-step" data-step="3">
+                    <span class="step-icon">◉</span>
+                    <span class="step-text">Calculating your Diwali bonus...</span>
+                    <div class="step-progress"><div class="step-bar"></div></div>
+                </div>
+                <div class="loading-step" data-step="4">
+                    <span class="step-icon">◉</span>
+                    <span class="step-text">Contacting management...</span>
+                    <div class="step-progress"><div class="step-bar"></div></div>
+                </div>
+                <div class="loading-step" data-step="5">
+                    <span class="step-icon">◉</span>
+                    <span class="step-text">Your surprise is almost ready...</span>
+                    <div class="step-progress"><div class="step-bar"></div></div>
+                </div>
+            </div>
+            <div class="overall-progress">
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="overall-progress-bar"></div>
+                </div>
+                <span class="progress-percent" id="progress-percent">0%</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screen 5: Personalized Prank -->
+    <section id="screen5" class="screen" data-screen="5">
+        <div class="background-effects">
+            <canvas id="fireworks-canvas-5"></canvas>
+            <div class="floating-particles" id="particles-container-5"></div>
+            <div class="confetti-container" id="confetti-container-5"></div>
+        </div>
+        <div class="screen-content prank-content">
+            <div class="logo-container">
+                <div class="logo-glow"></div>
+                <span class="logo-text">INTRA STORE</span>
+            </div>
+            <h1 class="prank-heading">WAIT... IS THAT YOU? 😂</h1>
+            <p class="prank-subtext">INTRA STORE MANAGEMENT HAS SOMETHING TO SAY!</p>
+            <div class="prank-image-container" id="prank-image-container">
+                <img id="prank-image" src="" alt="Prank Photo" class="prank-image">
+                <div class="image-frame-glow"></div>
+                <div class="funny-stickers" id="funny-stickers"></div>
+            </div>
+            <button class="btn-primary btn-reveal" id="btn-reveal">
+                <span class="btn-text">REVEAL THE TRUTH 😱</span>
+                <span class="btn-sparkle"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Screen 6: Grand Prank Reveal -->
+    <section id="screen6" class="screen" data-screen="6">
+        <div class="background-effects">
+            <canvas id="fireworks-canvas-6"></canvas>
+            <div class="floating-particles" id="particles-container-6"></div>
+            <div class="confetti-container" id="confetti-container-6"></div>
+        </div>
+        <div class="screen-content reveal-content">
+            <div class="logo-container">
+                <div class="logo-glow"></div>
+                <span class="logo-text">INTRA STORE</span>
+            </div>
+            <h1 class="reveal-main">HAHAHAHA! 😂</h1>
+            <h2 class="reveal-sub">YOU JUST GOT PRANKED!</h2>
+            <div class="prank-message" id="prank-message">
+                <p id="personalized-message"></p>
+                <p class="reassurance">Don't worry. Your actual salary is safe. 😂</p>
+                <p class="better-luck">Better luck next Diwali!</p>
+            </div>
+            <button class="btn-primary btn-next" id="btn-next">
+                <span class="btn-text">CONTINUE 😂</span>
+                <span class="btn-sparkle"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Screen 7: Final Celebration -->
+    <section id="screen7" class="screen" data-screen="7">
+        <div class="background-effects">
+            <canvas id="fireworks-canvas-7"></canvas>
+            <div class="floating-particles" id="particles-container-7"></div>
+            <div class="animated-diyas" id="diyas-container-7"></div>
+            <div class="confetti-container" id="confetti-container-7"></div>
+        </div>
+        <div class="screen-content final-content">
+            <div class="logo-container">
+                <div class="logo-glow"></div>
+                <span class="logo-text">INTRA STORE</span>
+            </div>
+            <h1 class="final-heading">JUST KIDDING! ❤️</h1>
+            <h2 class="final-sub">HAPPY DIWALI FROM INTRA STORE!</h2>
+            <p class="final-text">Thanks for being part of our team.</p>
+            <div class="sound-control" id="sound-control">
+                <button class="sound-btn" id="sound-btn" aria-label="Toggle Music">
+                    <svg class="sound-icon" id="sound-icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    </svg>
+                    <svg class="sound-icon hidden" id="sound-icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                        <line x1="23" y1="9" x2="17" y2="15"></line>
+                        <line x1="17" y1="9" x2="23" y2="15"></line>
+                    </svg>
+                </button>
+                <span class="sound-label" id="sound-label">Music: ON</span>
+            </div>
+            <button class="btn-primary btn-restart" id="btn-restart">
+                <span class="btn-text">PRANK ANOTHER EMPLOYEE 😂</span>
+                <span class="btn-sparkle"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Screen transition overlay -->
+    <div class="transition-overlay" id="transition-overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
